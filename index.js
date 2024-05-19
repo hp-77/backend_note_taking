@@ -51,8 +51,8 @@ fs.readdir(directoryPath, (err, files) => {
             
  
              
-             console.log('File content:', filedata);
-             res.send(filedata);
+             
+             res.render('show',{topic:req.params.filename,data:filedata});
          });
      });
 
