@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+ <body class=" overflow-hidden bg-zinc-900" >   
+
+    <!-- important else width is overflowd out of viewport by left-8 -->
+    <!-- can remove overflow hidden from both sides also just by scrolling left right in browser then apply overflow hidden -->
+
+    <form action="/create" method="post">
+         <input name="topic"     class=" block  px-5 py-5 relative top-8 left-8 m-4 bg-zinc-800 text-slate-100 block w-full rounded-2xl
+         outline-none" placeholder="Enter your note topic....">
+         <textarea name="description"  cols="2" rows="2"  class=" block  px-2 py-5 relative top-8 m-4 left-8 bg-zinc-800 text-slate-100 block w-full rounded-2xl
+         outline-none resize-none" placeholder="Enter note description...."></textarea>
+         
+         <button type="submit"  class="bg-blue-600 rounded-xl text-slate-300 m-3  relative left-9 top-4 h-10 w-32">Create Task</button>
+    </form>
+    <div class="flex flex-wrap gap-20">
+        <% if (files.length > 0) { %>
+            <% files.forEach((val) => { %>
+                <div class="bg-zinc-800 w-auto h-auto rounded-xl mt-16 ml-12 text-slate-100 p-3 ">
+                    <%= val %>
+                    <a href="/files_data/<%= val%>" class="text-blue-200 no-underline block"> Read More</a>
+                </div>
+            <% }); %>
+        
+        <% } else{   %>
+            <div class="w-36 h-24 border-4 border-red-600 border-solid mt-16 ml-12 text-slate-100">No Tasks yet</div>
+            <%  } %>
+        
+    </div>
+</body>
+</html>
+
+
+
